@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="sivolweb">
+		<class>com.sivolweb.model.SivolAlerta</class>
+		<class>com.sivolweb.model.SivolBodega</class>
+		<class>com.sivolweb.model.SivolDesperfectoVehiculo</class>
+		<class>com.sivolweb.model.SivolEstadoVehiculo</class>
+		<class>com.sivolweb.model.SivolMaestroPersona</class>
+		<class>com.sivolweb.model.SivolMarcaVehiculo</class>
+		<class>com.sivolweb.model.SivolMenuItem</class>
+		<class>com.sivolweb.model.SivolModeloMarca</class>
+		<class>com.sivolweb.model.SivolMultimediaVehiculo</class>
+		<class>com.sivolweb.model.SivolOperacion</class>
+		<class>com.sivolweb.model.SivolParamGrale</class>
+		<class>com.sivolweb.model.SivolPerfil</class>
+		<class>com.sivolweb.model.SivolPermiso</class>
+		<class>com.sivolweb.model.SivolPisoBodega</class>
+		<class>com.sivolweb.model.SivolRemolcador</class>
+		<class>com.sivolweb.model.SivolTallerAfiliado</class>
+		<class>com.sivolweb.model.SivolTipoAlerta</class>
+		<class>com.sivolweb.model.SivolTipoEstadoReparacion</class>
+		<class>com.sivolweb.model.SivolTipoMultimedia</class>
+		<class>com.sivolweb.model.SivolTipoOperacion</class>
+		<class>com.sivolweb.model.SivolTipoUsuario</class>
+		<class>com.sivolweb.model.SivolUsuario</class>
+		<class>com.sivolweb.model.SivolVehiculo</class>
 	</persistence-unit>
 </persistence>
