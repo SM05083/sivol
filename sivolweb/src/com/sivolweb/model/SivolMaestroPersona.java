@@ -58,22 +58,9 @@ public class SivolMaestroPersona implements Serializable {
 	@OneToMany(mappedBy="sivolMaestroPersona")
 	private List<SivolAlerta> sivolAlertas;
 
-	//bi-directional many-to-one association to SivolMaestroPersona
-	@ManyToOne
-	@JoinColumn(name="siv_maeper_codigo")
-	private SivolMaestroPersona sivolMaestroPersona;
-
-	//bi-directional many-to-one association to SivolMaestroPersona
-	@OneToMany(mappedBy="sivolMaestroPersona")
-	private List<SivolMaestroPersona> sivolMaestroPersonas;
-
 	//bi-directional many-to-one association to SivolOperacion
 	@OneToMany(mappedBy="sivolMaestroPersona")
 	private List<SivolOperacion> sivolOperacions;
-
-	//bi-directional many-to-one association to SivolUsuario
-	@OneToMany(mappedBy="sivolMaestroPersona")
-	private List<SivolUsuario> sivolUsuarios;
 
 	public SivolMaestroPersona() {
 	}
@@ -196,36 +183,6 @@ public class SivolMaestroPersona implements Serializable {
 		return sivolAlerta;
 	}
 
-	public SivolMaestroPersona getSivolMaestroPersona() {
-		return this.sivolMaestroPersona;
-	}
-
-	public void setSivolMaestroPersona(SivolMaestroPersona sivolMaestroPersona) {
-		this.sivolMaestroPersona = sivolMaestroPersona;
-	}
-
-	public List<SivolMaestroPersona> getSivolMaestroPersonas() {
-		return this.sivolMaestroPersonas;
-	}
-
-	public void setSivolMaestroPersonas(List<SivolMaestroPersona> sivolMaestroPersonas) {
-		this.sivolMaestroPersonas = sivolMaestroPersonas;
-	}
-
-	public SivolMaestroPersona addSivolMaestroPersona(SivolMaestroPersona sivolMaestroPersona) {
-		getSivolMaestroPersonas().add(sivolMaestroPersona);
-		sivolMaestroPersona.setSivolMaestroPersona(this);
-
-		return sivolMaestroPersona;
-	}
-
-	public SivolMaestroPersona removeSivolMaestroPersona(SivolMaestroPersona sivolMaestroPersona) {
-		getSivolMaestroPersonas().remove(sivolMaestroPersona);
-		sivolMaestroPersona.setSivolMaestroPersona(null);
-
-		return sivolMaestroPersona;
-	}
-
 	public List<SivolOperacion> getSivolOperacions() {
 		return this.sivolOperacions;
 	}
@@ -246,28 +203,6 @@ public class SivolMaestroPersona implements Serializable {
 		sivolOperacion.setSivolMaestroPersona(null);
 
 		return sivolOperacion;
-	}
-
-	public List<SivolUsuario> getSivolUsuarios() {
-		return this.sivolUsuarios;
-	}
-
-	public void setSivolUsuarios(List<SivolUsuario> sivolUsuarios) {
-		this.sivolUsuarios = sivolUsuarios;
-	}
-
-	public SivolUsuario addSivolUsuario(SivolUsuario sivolUsuario) {
-		getSivolUsuarios().add(sivolUsuario);
-		sivolUsuario.setSivolMaestroPersona(this);
-
-		return sivolUsuario;
-	}
-
-	public SivolUsuario removeSivolUsuario(SivolUsuario sivolUsuario) {
-		getSivolUsuarios().remove(sivolUsuario);
-		sivolUsuario.setSivolMaestroPersona(null);
-
-		return sivolUsuario;
 	}
 
 }

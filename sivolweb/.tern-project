@@ -5,10 +5,15 @@
     },
     "angular1": {
       
+    },
+    "bootstrap": {
+      
     }
   },
   "libs": [
     "ecma5",
-    "browser"
-  ]
+    "browser",
+    "jquery"
+  ],
+  "ecmaVersion": 6
 }

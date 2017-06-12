@@ -19,6 +19,9 @@ public class SivolUsuario implements Serializable {
 	@Column(name="usu_usuario")
 	private String usuUsuario;
 
+	@Column(name="usu_codigo")
+	private Integer usuCodigo;
+
 	@Column(name="usu_contrasena")
 	private String usuContrasena;
 
@@ -36,11 +39,6 @@ public class SivolUsuario implements Serializable {
 	@Column(name="usu_tipo")
 	private Integer usuTipo;
 
-	//bi-directional many-to-one association to SivolMaestroPersona
-	@ManyToOne
-	@JoinColumn(name="maeper_codigo")
-	private SivolMaestroPersona sivolMaestroPersona;
-
 	//bi-directional many-to-one association to SivolTipoUsuario
 	@ManyToOne
 	@JoinColumn(name="tipusu_codigo")
@@ -55,6 +53,14 @@ public class SivolUsuario implements Serializable {
 
 	public void setUsuUsuario(String usuUsuario) {
 		this.usuUsuario = usuUsuario;
+	}
+
+	public Integer getUsuCodigo() {
+		return this.usuCodigo;
+	}
+
+	public void setUsuCodigo(Integer usuCodigo) {
+		this.usuCodigo = usuCodigo;
 	}
 
 	public String getUsuContrasena() {
@@ -95,14 +101,6 @@ public class SivolUsuario implements Serializable {
 
 	public void setUsuTipo(Integer usuTipo) {
 		this.usuTipo = usuTipo;
-	}
-
-	public SivolMaestroPersona getSivolMaestroPersona() {
-		return this.sivolMaestroPersona;
-	}
-
-	public void setSivolMaestroPersona(SivolMaestroPersona sivolMaestroPersona) {
-		this.sivolMaestroPersona = sivolMaestroPersona;
 	}
 
 	public SivolTipoUsuario getSivolTipoUsuario() {

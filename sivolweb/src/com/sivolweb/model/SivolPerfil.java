@@ -34,11 +34,6 @@ public class SivolPerfil implements Serializable {
 	@Column(name="pef_nombre")
 	private String pefNombre;
 
-	//bi-directional many-to-one association to SivolPermiso
-	@ManyToOne
-	@JoinColumn(name="per_codigo")
-	private SivolPermiso sivolPermiso;
-
 	//bi-directional many-to-one association to SivolTipoUsuario
 	@OneToMany(mappedBy="sivolPerfil")
 	private List<SivolTipoUsuario> sivolTipoUsuarios;
@@ -84,14 +79,6 @@ public class SivolPerfil implements Serializable {
 
 	public void setPefNombre(String pefNombre) {
 		this.pefNombre = pefNombre;
-	}
-
-	public SivolPermiso getSivolPermiso() {
-		return this.sivolPermiso;
-	}
-
-	public void setSivolPermiso(SivolPermiso sivolPermiso) {
-		this.sivolPermiso = sivolPermiso;
 	}
 
 	public List<SivolTipoUsuario> getSivolTipoUsuarios() {

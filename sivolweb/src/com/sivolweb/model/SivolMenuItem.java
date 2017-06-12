@@ -36,11 +36,6 @@ public class SivolMenuItem implements Serializable {
 	@Column(name="menite_url")
 	private String meniteUrl;
 
-	//bi-directional many-to-one association to SivolPermiso
-	@ManyToOne
-	@JoinColumn(name="per_codigo")
-	private SivolPermiso sivolPermiso;
-
 	public SivolMenuItem() {
 	}
 
@@ -90,14 +85,6 @@ public class SivolMenuItem implements Serializable {
 
 	public void setMeniteUrl(String meniteUrl) {
 		this.meniteUrl = meniteUrl;
-	}
-
-	public SivolPermiso getSivolPermiso() {
-		return this.sivolPermiso;
-	}
-
-	public void setSivolPermiso(SivolPermiso sivolPermiso) {
-		this.sivolPermiso = sivolPermiso;
 	}
 
 }
