@@ -35,33 +35,33 @@ public class AccessFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		System.out.println("Filtrando Acceso");
-		HttpServletRequest req = (HttpServletRequest) request;
-        String requestURI = req.getRequestURI();
-        try{
-        	if("pages/index.html".contains(requestURI)){
-        		chain.doFilter(request, response);
-        	} else if ("pages/".contains(requestURI)) {
-	        	HttpSession session = req.getSession();
-	        	System.out.println("estadoLogin desde filtro: " + session.getAttribute("estadoLogin"));
-	        	if(session.getAttribute("estadoLogin") != null){
-	        		if(Boolean.getBoolean("" + session.getAttribute("estadoLogin")) == true){
-	        			System.out.println("true");
-	        			chain.doFilter(request, response);
-	        		} else{
-	        			System.out.println("false");
-	        			request.getRequestDispatcher("pages/index.html").forward(request, response);
-	        		}        		
-	        	}else{
-	        		session.setAttribute("estadoLogin", false);
-	        		request.getRequestDispatcher("pages/index.html").forward(request, response);
-	        	}
-	        } else {
-	            chain.doFilter(request, response);
-	        }
-        } catch(Exception ex){
+//		System.out.println("Filtrando Acceso");
+//		HttpServletRequest req = (HttpServletRequest) request;
+//        String requestURI = req.getRequestURI();
+//        try{
+//        	if("pages/index.html".contains(requestURI)){
+//        		chain.doFilter(request, response);
+//        	} else if ("pages/".contains(requestURI)) {
+//	        	HttpSession session = req.getSession();
+//	        	System.out.println("estadoLogin desde filtro: " + session.getAttribute("estadoLogin"));
+//	        	if(session.getAttribute("estadoLogin") != null){
+//	        		if(Boolean.getBoolean("" + session.getAttribute("estadoLogin")) == true){
+//	        			System.out.println("true");
+//	        			chain.doFilter(request, response);
+//	        		} else{
+//	        			System.out.println("false");
+//	        			request.getRequestDispatcher("pages/index.html").forward(request, response);
+//	        		}        		
+//	        	}else{
+//	        		session.setAttribute("estadoLogin", false);
+//	        		request.getRequestDispatcher("pages/index.html").forward(request, response);
+//	        	}
+//	        } else {
+//	            chain.doFilter(request, response);
+//	        }
+//        } catch(Exception ex){
         	chain.doFilter(request, response);
-        }
+//        }
 	}
 
 	/**

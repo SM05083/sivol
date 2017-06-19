@@ -2,23 +2,20 @@
  * Controlador del main frame principal
  */
 
-app.controller("mainController", function($scope, dataService) {
+app.controller("mainController", function($scope, $http, dataService) {
 
 	$scope.usuario = dataService.dataUser;
+	$scope.itemsMenu;
 	/**
-	 * Metodo que inicializa variables de sesion
+	 * Metodo que inicializa pantalla principal
 	 */
-	
-	
 	$scope.initMain = function() {
-		
-//		$.get("../rest/login/load", function(respuesta) {
-//				dataService.dataUser.username = respuesta.usuario;	
-//				$scope.usuario = dataService.dataUser;
-		
-				console.log("SSInicializando. . . . " + $scope.usuario.username);
-//		}, "json");	
-
+		$http.get('../rest/login/load').then(function(response) {
+			dataService.dataUser.username = response.data.usuario;	
+			$scope.usuario = dataService.dataUser;
+			console.log("SSInicializando. . . . " + $scope.usuario.username);
+			$scope.itemsMenu = response.data.opciones;
+        });
 	}
 	
 	$scope.getUsuario = function(){

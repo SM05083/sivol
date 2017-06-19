@@ -26,11 +26,12 @@
 		<class>com.sivolweb.model.SivolTipoUsuario</class>
 		<class>com.sivolweb.model.SivolUsuario</class>
 		<class>com.sivolweb.model.SivolVehiculo</class>
+		<class>com.sivolweb.model.pojos.MenuItem</class>
 
 		<properties>
 			<property name="javax.persistence.target-database" value="PostgreSQL" />
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.0.14:5432/sivoldb" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.0.20:5432/sivoldb" />
 			<property name="javax.persistence.jdbc.user" value="postgres" />
 			<property name="javax.persistence.jdbc.password" value="admin" />
 			<property name="eclipselink.ddl-generation" value="create-tables" />

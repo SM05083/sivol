@@ -34,14 +34,16 @@ app.controller("loginController", function($scope, dataService) {
     		} else{
     			$scope.errMjs = respuesta.errMjs;
     			console.log("errMsj: " + $scope.errMjs);
-    			$("#msjLogin").alert('open');
+    			$('#msjLoginDiv').text($scope.errMjs);
+    			$('#myModal').modal('show') ;
     		}    		
     	}, "json");
     	
     }
 	
 	$scope.init = function(){
-		$("#msjLogin").alert('close');
+		//--- * Cerrando el mensaje de error en automatico * ---
+		$("#msjLogin").alert('close');		
 	}
 	
 	$scope.init();

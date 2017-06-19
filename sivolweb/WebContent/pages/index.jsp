@@ -62,12 +62,12 @@
 									Login
 									<div ng-app="sivolweb" ng-controller='loginController'
 										class="form" role="form" accept-charset="UTF-8" id="login-nav">
-										<div id="msjLogin" class="alert alert-danger alert-dismissable fade in">
-											<a href="#" class="close" data-dismiss="alert" 
-												aria-label="close">&times;</a>
-												 <strong>Inicio de Sesion!</strong>
-												 {{msjErr}}
-												 												
+										<div id="msjLogin"
+											class="alert alert-danger alert-dismissable fade in">
+											<a href="#" class="close" data-dismiss="alert"
+												aria-label="close">&times;</a> <strong>Inicio de
+												Sesion!</strong> {{msjErr}}
+
 										</div>
 										<div class="form-group">
 											<label class="sr-only" for="exampleInputEmail2">Usuario{{user.username}}</label>
@@ -100,6 +100,25 @@
 		<!-- /.navbar-collapse -->
 	</div>
 	<!-- /.container-fluid --> </nav>
+
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">...</h4>
+				</div>
+				<div id="msjLoginDiv" class="modal-body"></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 </body>

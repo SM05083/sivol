@@ -1,5 +1,7 @@
 package com.sivolweb.rest;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.GET;
@@ -11,12 +13,14 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.sivolweb.dao.implementation.LoginDAOImpl;
 import com.sivolweb.dao.interfaces.LoginDao;
 import com.sivolweb.model.SivolUsuario;
+import com.sivolweb.model.pojos.MenuItem;
 
 /**
  * RESTful que realiza Login
@@ -41,11 +45,12 @@ public class LoginService {
 		
 		JSONObject jsonObject = null;
 		HttpSession session = request.getSession();
+		jsonObject = new JSONObject();
 		try {
-			jsonObject = new JSONObject();
 			
 			System.out.println("user: " + user );
-			SivolUsuario sivolUsuario = loginDao.loginUser(user);			
+			SivolUsuario sivolUsuario = loginDao.loginUser(user);	
+			System.out.println(sivolUsuario);
 			if(sivolUsuario != null){
 				System.out.println("sivol user: " + sivolUsuario.getUsuUsuario());	
 				success = validatePass(pass, sivolUsuario.getUsuContrasena());
@@ -53,7 +58,8 @@ public class LoginService {
 				if(success){
 					//--- * Usuario y password correcto * ---					
 					session.setAttribute("usuario", user); //--- usuario						
-					jsonObject.put("usuario", user);	
+					jsonObject.put("usuario", user);					
+					
 				} else{
 					//--- * Se equivoco en el password * ---
 					success = false;
@@ -94,18 +100,30 @@ public class LoginService {
 	public Response loadUser() {
 		System.out.println("Cargando informacion de usuario");
 		JSONObject jsonObject = null;
+		JSONArray jsonArray = null;
 		HttpSession session = request.getSession();
 		String usuario = "";
 		try {
 			jsonObject = new JSONObject();
-
 			usuario = session.getAttribute("usuario").toString();
+			System.out.println(usuario);
+			// --- * Cargando Menues * ---
+			System.out.println("Cargando Opciones");
+			List<MenuItem> items = loginDao.loginMenuItem(usuario);
+
+			jsonArray = new JSONArray();
+
+			for (MenuItem item : items) {				
+				jsonArray.put(new JSONObject(item.toString()));
+			}
 			
 			jsonObject.put("usuario", usuario);
+			jsonObject.put("opciones", jsonArray);
+			
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
-		return Response.status(200).entity(jsonObject.toString()).build();
+		return Response.ok().entity(jsonObject.toString()).build();
 	}
 
 }

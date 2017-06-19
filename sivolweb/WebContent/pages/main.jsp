@@ -12,8 +12,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>Sivol Web</title>
 
+	<link rel="shortcut icon" type="image/png" href="../images/favicon.ico" />
     <!-- Bootstrap Core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
 
@@ -108,10 +109,10 @@
 <!--                             </li> -->
 <!--                         </ul> -->
 <!--                     </li> -->
-                    <li>
-                        <a href="blank-page.html" target="mainContainer"><i class="fa fa-fw fa-user"></i> Gestion de Usuarios</a>
+                    <li ng-repeat="x in itemsMenu" >
+                        <a href="{{x.url}}" target="mainContainer" ><i class="fa fa-fw fa-automobile"></i> {{x.nombre}}</a>
                     </li>
-
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -120,7 +121,7 @@
         <div id="page-wrapper" >
 
             <div class="container-fluid" style="height: 750px">
-				<iframe name="mainContainer" width="100%" height="100%" src="welcome.html" onload="resizeIframe(this)">
+				<iframe name="mainContainer" width="100%" height="100%" src="welcome.jsp" onload="resizeIframe(this)">
 				
 				</iframe>
                 
