@@ -40,6 +40,7 @@ public class LoginDAOImpl extends JpaDAO implements LoginDao {
 	}
 	
 	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<MenuItem> loginMenuItem(String user){
 		List<MenuItem> items = null;

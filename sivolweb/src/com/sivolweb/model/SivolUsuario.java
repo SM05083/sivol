@@ -2,6 +2,9 @@ package com.sivolweb.model;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import com.sivolweb.util.Utilidades;
+
 import java.util.Date;
 
 
@@ -45,6 +48,15 @@ public class SivolUsuario implements Serializable {
 	private SivolTipoUsuario sivolTipoUsuario;
 
 	public SivolUsuario() {
+	}
+
+	
+	@Override
+	public String toString() {
+		return "{ usuUsuario : " + usuUsuario + ", usuCodigo : " + usuCodigo + ","
+				+ " usuEstado : " + Utilidades.obtenerEstado(usuEstado) + ", usuFechaCreacion : '" + Utilidades.formatearFecha(usuFechaCreacion) + "', "
+				+ " usuFechaModificacion : '" + Utilidades.formatearFecha(usuFechaModificacion) + "',"
+				+ " usuTipo : " + usuTipo + " } ";
 	}
 
 	public String getUsuUsuario() {
