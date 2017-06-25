@@ -32,7 +32,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+<!-- jQuery -->
+<script src="../js/jquery.js"></script>
 
+<!-- Bootstrap Core JavaScript -->
+<script src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8"
 	src="../js/angular/angular.min.js"></script>
 <script type="text/javascript" charset="utf-8"
@@ -88,9 +92,9 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="usuario in listaUsuarios" >
+								<tr ng-repeat="usuario in listaUsuarios">
 									<td>{{usuario.usuUsuario}}</td>
-									<td >{{usuario.usuEstado}}</td>
+									<td>{{usuario.usuEstado}}</td>
 									<td>{{usuario.usuFechaCreacion}}</td>
 									<td><button type="button" class="btn btn-xs btn-info"
 											data-dismiss="modal">
@@ -114,7 +118,25 @@
 
 
 			<!-- /.row -->
-
+			<div class="modal fade" id="gusuarioModal" tabindex="-1"
+				role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel">...</h4>
+						</div>
+						<div id="msjDivUsuario" class="modal-body"></div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Aceptar</button>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<!-- /.container-fluid -->
 
@@ -123,17 +145,12 @@
 
 
 
-	<!-- jQuery -->
-	<script src="../js/jquery.js"></script>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="../js/bootstrap.min.js"></script>
 
 	<!-- Morris Charts JavaScript -->
 	<script src="../js/plugins/morris/raphael.min.js"></script>
 	<script src="../js/plugins/morris/morris.min.js"></script>
 	<script src="../js/plugins/morris/morris-data.js"></script>
-
 </body>
 
 </html>
